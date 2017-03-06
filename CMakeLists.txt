@@ -7,7 +7,7 @@ message(PROJECT:${PROJECT_NAME})
 
 # ==================== variables ====================
 
-# cmake top-level dir
+# cmake top-level dir, i dont use this
 message(CMAKE_SOURCE_DIR:${CMAKE_SOURCE_DIR})
 # project path
 message(PROJECT_SOURCE_DIR:${PROJECT_SOURCE_DIR})
@@ -22,23 +22,29 @@ set(LIBRARY_OUTPUT_PATH ${PROJECT_BINARY_DIR}/bin)
 message(LIBRARY_OUTPUT_PATH:${LIBRARY_OUTPUT_PATH})
 
 # ==================== example ====================
+#[[
 
-# add_subdirectory(sub1)
-# add_subdirectory(sub2)
+add_subdirectory(sub1)
+add_subdirectory(sub2)
 
 # header files path
-# include_directories("${CMAKE_SOURCE_DIR}/include")
+include_directories("${PROJECT_SOURCE_DIR}/include")
 
 # build executable
-# add_executable(hello ${PROJECT_SOURCE_DIR}/hello.cc)
+add_executable(hello ${PROJECT_SOURCE_DIR}/hello.cc)
+
+# wildcard
+AUX_SOURCE_DIRECTORY(${PROJECT_SOURCE_DIR}/src MAIN_SRC_DIR)
+add_executable(hello ${MAIN_SRC_DIR})
 
 # build library
-# add_library(xxx ${PROJECT_SOURCE_DIR}/xxx.cc)
+add_library(xxx ${PROJECT_SOURCE_DIR}/xxx.cc)
 
 # link library
-# target_link_libraries(xxx ${CMAKE_SOURCE_DIR}/libs/libxxx.a)
-# target_link_libraries(xxx sub1)
+target_link_libraries(xxx ${PROJECT_SOURCE_DIR}/libs/libxxx.a)
+target_link_libraries(xxx sub1)
 
+]]
 # ==================== this project ====================
 
 add_subdirectory(cal)
@@ -46,6 +52,9 @@ add_subdirectory(cal)
 
 include_directories("${PROJECT_SOURCE_DIR}/include")
 
-add_executable(hello ${PROJECT_SOURCE_DIR}/src/hello.cc)
+# add_executable(hello ${PROJECT_SOURCE_DIR}/src/hello.cc)
+
+AUX_SOURCE_DIRECTORY(${PROJECT_SOURCE_DIR}/src MAIN_SRC_DIR)
+add_executable(hello ${MAIN_SRC_DIR})
 
 target_link_libraries(hello ${PROJECT_SOURCE_DIR}/libs/cal.lib)
