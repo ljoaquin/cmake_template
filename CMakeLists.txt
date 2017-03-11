@@ -3,23 +3,23 @@ cmake_minimum_required(VERSION 3.0)
 
 # Project's name
 project(test)
-message([cm_msg]PROJECT:${PROJECT_NAME})
+message(PROJECT:${PROJECT_NAME})
 
 # ==================== variables ====================
 
 # cmake top-level dir, i dont use this
-message([cm_msg]CMAKE_SOURCE_DIR:${CMAKE_SOURCE_DIR})
+message(CMAKE_SOURCE_DIR:${CMAKE_SOURCE_DIR})
 # project path
-message([cm_msg]PROJECT_SOURCE_DIR:${PROJECT_SOURCE_DIR})
+message(PROJECT_SOURCE_DIR:${PROJECT_SOURCE_DIR})
 # build path
-message([cm_msg]PROJECT_BINARY_DIR:${PROJECT_BINARY_DIR})
+message(PROJECT_BINARY_DIR:${PROJECT_BINARY_DIR})
 
 # output path
 set(EXECUTABLE_OUTPUT_PATH ${PROJECT_BINARY_DIR}/bin)
-message([cm_msg]EXECUTABLE_OUTPUT_PATH:${EXECUTABLE_OUTPUT_PATH})
+message(EXECUTABLE_OUTPUT_PATH:${EXECUTABLE_OUTPUT_PATH})
 
 set(LIBRARY_OUTPUT_PATH ${PROJECT_BINARY_DIR}/bin)
-message([cm_msg]LIBRARY_OUTPUT_PATH:${LIBRARY_OUTPUT_PATH})
+message(LIBRARY_OUTPUT_PATH:${LIBRARY_OUTPUT_PATH})
 
 # ==================== example ====================
 #[[
@@ -57,5 +57,4 @@ include_directories("${PROJECT_SOURCE_DIR}/include")
 AUX_SOURCE_DIRECTORY(${PROJECT_SOURCE_DIR}/src MAIN_SRC_DIR)
 add_executable(hello ${MAIN_SRC_DIR})
 
-# target_link_libraries(hello ${PROJECT_SOURCE_DIR}/libs/cal.lib)
-target_link_libraries(hello cal)
+target_link_libraries(hello ${PROJECT_SOURCE_DIR}/libs/cal.lib)
