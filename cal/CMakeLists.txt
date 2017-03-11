@@ -3,23 +3,23 @@ cmake_minimum_required(VERSION 3.0)
 
 # Project's name
 project(cal)
-message(PROJECT:${PROJECT_NAME})
+message([cm_msg]PROJECT:${PROJECT_NAME})
 
 # ==================== variables ====================
 
 # cmake top-level dir
-message(CMAKE_SOURCE_DIR:${CMAKE_SOURCE_DIR})
+message([cm_msg]CMAKE_SOURCE_DIR:${CMAKE_SOURCE_DIR})
 # project path
-message(PROJECT_SOURCE_DIR:${PROJECT_SOURCE_DIR})
+message([cm_msg]PROJECT_SOURCE_DIR:${PROJECT_SOURCE_DIR})
 # build path
-message(PROJECT_BINARY_DIR:${PROJECT_BINARY_DIR})
+message([cm_msg]PROJECT_BINARY_DIR:${PROJECT_BINARY_DIR})
 
 # output path
 set(EXECUTABLE_OUTPUT_PATH ${PROJECT_BINARY_DIR}/bin)
-message(EXECUTABLE_OUTPUT_PATH:${EXECUTABLE_OUTPUT_PATH})
+message([cm_msg]EXECUTABLE_OUTPUT_PATH:${EXECUTABLE_OUTPUT_PATH})
 
 set(LIBRARY_OUTPUT_PATH ${PROJECT_BINARY_DIR}/bin)
-message(LIBRARY_OUTPUT_PATH:${LIBRARY_OUTPUT_PATH})
+message([cm_msg]LIBRARY_OUTPUT_PATH:${LIBRARY_OUTPUT_PATH})
 
 # ==================== example ====================
 
